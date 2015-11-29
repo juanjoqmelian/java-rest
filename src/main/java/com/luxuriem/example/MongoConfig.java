@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 @EnableMongoRepositories
-class ApplicationConfig extends AbstractMongoConfiguration {
+class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
@@ -16,7 +16,8 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 
     @Override
     public Mongo mongo() throws Exception {
-        return new Mongo();
+        //TODO - set localhost and configure link on docker
+        return new Mongo("192.168.99.100", 27017);
     }
 
     @Override
